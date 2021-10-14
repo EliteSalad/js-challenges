@@ -1,4 +1,4 @@
-import * as challenge from "./challenge";
+import * as challenge from  "./challenge"; //"./solution";
 
 const {
   createFullName,
