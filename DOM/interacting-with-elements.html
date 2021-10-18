@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom</title>
+    <style>
+        *{font-family: sans-serif;}
+        .valid{ 
+            background-color: lightgreen;
+            border: 5px solid green;
+    }
+    </style>
+</head>
+<body>
+    <h1 id="heading">Hello <span>User</span></h1>
+    <button id="button">Click me</button>
+    <form action="">
+        <input type="text" class="text-input" />
+        <input type="text" class="text-input" />
+    </form>
+    <script>
+        //console.log(document.getElementById("heading");
+
+        //GETTING A HTML ELEMENT REFERENCE
+        const heading = document.getElementById("heading");
+        const button = document.getElementById("button");
+        //const heading = document.querySelector("heading");
+        console.dir(heading);
+        //GETTING MULTIPLE ELEMETS
+        const textInputs = document.getElementsByClassName("text-input");
+
+        //console.log(document.getElementById("heading"));
+        console.log({heading});
+        heading.innerHTML = "Javascript <span>did this</span>"
+        console.log({button});
+        button.style.backgroundColor = "green";
+        button.innerHTML = "clicked :)";
+        console.log({textInputs});
+        for (let index = 0; index < textInputs.length; index++) {
+            textInputs[index].value = "a loop did this";
+            
+        }
+    </script>
+
+</body>
+</html>
