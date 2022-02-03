@@ -1,0 +1,46 @@
+.calculator{
+    top: 50%;
+    left:50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    width: 256px;
+    text-align: center;
+    border: 10px solid black;
+    background: black;
+    border-radius: 5px;
+
+
+}
+
+.keypad{
+    
+    display: flex;
+    flex: 5;
+    
+    
+    
+    
+    
+    
+}
+
+.textDisplay{
+
+}
+
+button{
+    background-color: aqua;
+
+}
+
+button:hover{
+    
+}
+
+button:active {
+    
+    box-shadow: 0 5px #666;
+    transform: translateY(1px);
+    transition: green 2s ease-in 5s;
+  }

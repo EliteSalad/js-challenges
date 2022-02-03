@@ -1,0 +1,149 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Poppins&display=swap" rel="stylesheet" />
+    <style>
+      h1,
+      h2,
+      h3,
+      h4,
+      h5 {
+        font-family: "Poppins";
+      }
+      * {
+        font-family: "Lato";
+      }
+      .active{
+          background-color: yellow;
+      }
+      .valid {
+        border: 1px solid green;
+      }
+      .invalid {
+        border: 1px solid red;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <!-- Welcome/Title -->
+      <section id="welcome">
+        <h1 id="welcome-title">Welcome to Nology Conference!</h1>
+        <p>Amazing talks from amazing people.</p>
+      </section>
+
+      <!-- Register your interest -->
+      <section id="contact">
+        <h3>Register your interest!</h3>
+        <form id= "this-form">
+          <div class="form-group">
+            <label class="form-label">Name</label>
+            <input class="form-input invalid " id="form-input" onchange="handleInputChange(event)" />
+            <label class="form-error"></label>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input class="form-input " />
+            <label class="form-error"></label>
+          </div>
+          <button id="first-button">Send</button>
+        </form>
+      </section>
+
+      <section id="summary">
+        <h3>Summary</h2>
+        <ul id="summary-list"></ul>
+      </section>
+    </main>
+
+    <!-- Script -->
+    <script defer>
+      // 1. Change the welcome innerHTML to 'Welcome to Nology Conference 2021!'
+      const welcomeTitle = document.getElementById("welcome-title");
+      welcomeTitle.innerHTML = "Welcome to Nology Conference 2021";
+
+      // 2. Add an 'active' class to first form-input
+    const formInputs = document.getElementsByClassName("form-input");
+    formInputs[0].addEventListener("focus", () => {
+        formInputs[0].classList.add("active");
+    })
+    formInputs[0].addEventListener("blur", () => {
+        formInputs[0].classList.remove("active");
+    })
+    
+      // 3. Create a handleRegister function to run when the form is submitted, a simple pop please.
+      const thisForm = document.getElementById("this-form");
+      thisForm.addEventListener("submit", event => {
+
+       
+
+        if(document.querySelector(".invalid") == null)
+        {handleRegister();
+        }
+        else
+        {
+          alert("nothing in box");
+        }
+         
+        //if (formInputs[0].innerHTML == "" || formInputs[1].innerHTML == ""){
+        //   alert("nothing in box");
+        // }
+        // else{
+         //  handleRegister();
+         //}
+      })
+      const handleRegister = () => {
+          alert("form submitted");
+      }
+      // 4. Create a handleInputChange function to validate the input
+      const handleInputChange = (event) =>{
+          //console.log(input);
+          console.log(event.target.value)
+          if (event.target.value)
+            {
+            event.target.classList.add("valid");
+            event.target.classList.remove("invalid");
+            console.log("input valid");
+            }
+          else
+            {
+            event.target.classList.add("invalid");
+            event.target.classList.remove("valid");
+            console.log("input invalid");
+            }
+      }
+
+         // Can you add the class 'valid' if it has a value?​
+         // Can you  add the 'invalid' class if it does not?
+
+      // EXTENSION Dynamically add a ul/li list beneath the form with the summary points of conference
+      // IN NEED OF EXPLAINATION
+
+      const summaryPoints = ["Intro", "SCSS", "Disco"];
+      const summaryList = document.getElementById("summary-list");
+      
+      const summaryPointsHTML = summaryPoints.map((summaryPoint) => {
+        return `<li>${summaryPoint}</li>`;
+      });
+
+      summaryList.innerHTML = summaryPointsHTML.join("");
+
+      // 5. Red error messages benath input if no value
+      //on button click check if either field invalid if true display error message
+      const button = document.querySelectorAll("button");
+      button.addEventListener("click", () => {
+        event.stopPropagation();
+        alert("dont do it ");
+      })
+
+      // 6. Green boarder when valid red when not
+
+      // 7. On signup display "thank you for registering" on page
+
+      // 8. Extension. Make the form a two step form, second step has drop down asking how did you find out about nology
+      
+      // 9. Following the UX guidelines build the form, and make it your own :)
+
+    </script>
+  </body>
+</html>
