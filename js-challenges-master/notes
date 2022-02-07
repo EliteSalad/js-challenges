@@ -1,0 +1,21 @@
+JS2 final
+
+if string[index] / 3 = rowindex
+
+column index= string[index] mod 3
+
+
+5 mod 3 = 2
+
+charAt(index)
+
+rowIndex = charAt(index)/3;
+columnIndex = charAt(index)%3;
+
+
+if(rowIndex > 0)
+finalIndex = rowIndex + columnIndex;
+else
+finalIndex = columIndex; 
+
+encrypted[1]

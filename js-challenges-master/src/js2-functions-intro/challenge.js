@@ -57,6 +57,21 @@ export const multiplyNumbers = (/* Write the parameters here */) => {
  * @returns {string} "You got a new high score!" | "So close!" | "Better luck next time!"
  */
 export const checkIfNewHighScore = (score, highScore) => {
+  switch (score) {
+    case score > highScore:
+      return "You got a new high score!"
+      break;
+      case score < highScore:
+        return "Better luck next time"
+        break;
+        case score = highScore:
+          return "So close!"
+          break;
+
+  
+    default:
+      break;
+  }
   /* Write your code here */
 };
 
@@ -67,7 +82,11 @@ export const checkIfNewHighScore = (score, highScore) => {
  * @returns {string} "15 degrees celsius is 59 degrees fahrenheit"
  */
 export const celsiusToFahrenheit = (tempInCelsius) => {
-  /* Write your code here */
+
+  let tempInFahrenheit = (tempInCelsiu* 9) / 5 + 32;
+  let say = `${tempInCelsius} degrees celsius is ${tempInCelsius} degrees fahrenheit`;
+  return say;
+
 };
 
 /**
@@ -80,7 +99,9 @@ export const celsiusToFahrenheit = (tempInCelsius) => {
  * @returns {number} 47450
  */
 export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
-  /* Write your code here */
+  supplyAmount = (maxAge-age) * snickersPerDay;
+  return supplyAmount;
+
 };
 
 /* Advanced Challenges */
@@ -100,7 +121,28 @@ export const calculateLifetimeSupply = (snickersPerDay, age, maxAge) => {
  * @returns {string} A - F | Score unavailable
  */
 export const getGrade = (score) => {
-  /* Write your code here */
+
+  if (score > 0 || score < 100 ) {
+    switch (score) {
+      case score >= 80:
+        return "A";
+        case score >= 70:
+          return "B";
+          case score >= 60:
+            return "C";
+            case score >= 50:
+              return "D";
+              case score >= 40:
+                return "E";
+      default:
+        return "F";
+        
+    }
+ 
+  }
+  else
+  return "Score unavailable";
+
 };
 
 /**
@@ -110,7 +152,10 @@ export const getGrade = (score) => {
  * @returns {number} 28.27
  */
 export const calculateAreaOfCircle = (radius) => {
-  /* Write your code here */
+  const PI = Math.PI;
+  const area = (PI * radius ** 2).toFixed(2); //becomes string for some reason
+
+  return parseFloat(areaTo2DecimalPlaces);
 };
 
 /* Expert Challenge */
@@ -131,5 +176,22 @@ export const calculateAreaOfCircle = (radius) => {
  * @param {string} name John
  */
 export const getStudentSummary = (score, name) => {
-  /* Write your code here */
+  const letterGrade = getGrade(score);
+
+  switch (letterGrade) {
+    case "A":
+      return `Congratulations ${name}! You achieved a grade of ${letterGrade}.`;
+    case "B":
+      return `Well done ${name}! You achieved a grade of ${letterGrade}.`;
+    case "C":
+      return `Nicely done ${name}! You achieved a grade of ${letterGrade}.`;
+    case "D":
+      return `That's okay ${name}. You achieved a grade of ${letterGrade}.`;
+    case "E":
+      return `Too bad ${name}. You achieved a grade of ${letterGrade}.`;
+    case "F":
+      return `Sorry ${name}. You achieved a grade of ${letterGrade}. There's always next year.`;
+    default:
+      return `My apologies ${name}, there's been an error in processing your grade.`;
+  }
 };
